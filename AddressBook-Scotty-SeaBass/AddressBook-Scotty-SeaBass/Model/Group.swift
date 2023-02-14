@@ -7,7 +7,8 @@
 
 import Foundation
 
-class Group {
+class Group: Codable {
+    
     let id: UUID
     var name: String
     var people: [Person]

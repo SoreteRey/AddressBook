@@ -14,18 +14,21 @@ class PersonController {
         let newPerson = Person(name: name, address: address)
         group.people.append(newPerson)
         
+        GroupController.sharedInstances.saveContactsToDisk()
     }
     
     static func updatePerson(person: Person, newName: String, newAddress: String) {
         person.name = newName
         person.address = newAddress
         
+        GroupController.sharedInstances.saveContactsToDisk()
     }
     
     static func deletePerson(personToDelete: Person, from group: Group) {
         guard let index = group.people.firstIndex(of: personToDelete) else { return }
         group.people.remove(at: index)
         
+        GroupController.sharedInstances.saveContactsToDisk()
     }
 // We need to save!!!! Save meeeeee please!!!!! I don't want to be deleted!!!!
 }//end of class
