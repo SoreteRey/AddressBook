@@ -12,13 +12,13 @@
         <!--Groups-->
         <scene sceneID="N4S-Lh-1C6">
             <objects>
-                <tableViewController id="wj8-iz-lvU" sceneMemberID="viewController">
+                <tableViewController id="wj8-iz-lvU" customClass="GroupsTableViewController" customModule="AddressBook_Scotty_SeaBass" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="ChS-vt-XQg">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="FUp-nY-iuu" detailTextLabel="bJm-7G-sh9" style="IBUITableViewCellStyleValue1" id="bSf-Q6-Z7D">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="FUp-nY-iuu" detailTextLabel="bJm-7G-sh9" style="IBUITableViewCellStyleValue1" id="bSf-Q6-Z7D" customClass="groupCell">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bSf-Q6-Z7D" id="ANf-ey-NU6">
@@ -41,6 +41,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="HxA-bn-RIU" kind="show" id="Lnq-Zk-bG5"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -51,7 +54,8 @@
                     <navigationItem key="navigationItem" title="Groups" id="ETA-5X-JBY">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZWN-gb-o90">
                             <connections>
-                                <segue destination="HxA-bn-RIU" kind="show" id="SBy-fE-ncP"/>
+                                <action selector="addButtonTapped:" destination="wj8-iz-lvU" id="ckx-kx-aD2"/>
+                                <segue destination="HxA-bn-RIU" kind="show" id="6Pc-qg-mGN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -60,10 +64,10 @@
             </objects>
             <point key="canvasLocation" x="922" y="-72"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Person Table View Controller-->
         <scene sceneID="c7f-mE-PT3">
             <objects>
-                <tableViewController id="HxA-bn-RIU" sceneMemberID="viewController">
+                <tableViewController id="HxA-bn-RIU" customClass="PersonTableViewController" customModule="AddressBook_Scotty_SeaBass" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="053-hc-gt3">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,7 +98,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </stackView>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="10" textLabel="6GB-b5-paH" style="IBUITableViewCellStyleDefault" id="NLY-SM-PbD">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="10" reuseIdentifier="personCell" textLabel="6GB-b5-paH" style="IBUITableViewCellStyleDefault" id="NLY-SM-PbD">
                                 <rect key="frame" x="0.0" y="112" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NLY-SM-PbD" id="KAj-cR-QER">
@@ -110,6 +114,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="personNameLabel" destination="6GB-b5-paH" id="xYg-CW-6f8"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -118,9 +125,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="w2V-C0-COM">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Amg-s3-fVr">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gC5-qt-2eE">
                             <connections>
-                                <segue destination="WCf-fg-Mh0" kind="show" id="DNh-k6-uIJ"/>
+                                <segue destination="WCf-fg-Mh0" kind="show" id="Cml-w5-ziP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -186,6 +193,9 @@
             <point key="canvasLocation" x="149" y="-73"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="6Pc-qg-mGN"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
